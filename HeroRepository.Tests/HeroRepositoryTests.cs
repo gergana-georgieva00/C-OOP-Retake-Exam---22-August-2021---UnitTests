@@ -42,8 +42,11 @@ public class HeroRepositoryTests
     [Test]
     public void GetHeroWithHighestLevelWorks()
     {
+        var hero2 = new Hero("otherName", 5);
         heroRepository.Create(hero);
-        Assert.That(heroRepository.GetHeroWithHighestLevel(), Is.EqualTo(hero));
+        heroRepository.Create(hero2);
+
+        Assert.That(heroRepository.GetHeroWithHighestLevel(), Is.EqualTo(hero2));
     }
 
     [Test]
