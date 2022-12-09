@@ -23,4 +23,10 @@ public class HeroRepositoryTests
         heroRepository.Create(new Hero("name", 3));
         Assert.Throws<InvalidOperationException>(() => heroRepository.Create(new Hero("name", 3)));
     }
+
+    [Test]
+    public void RemoveWithNullOrWhitespaceThrows()
+    {
+        Assert.Throws<ArgumentNullException>(() => heroRepository.Remove(null));
+    }
 }
