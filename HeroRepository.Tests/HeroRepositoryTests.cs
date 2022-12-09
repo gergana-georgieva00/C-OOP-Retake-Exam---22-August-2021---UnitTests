@@ -4,11 +4,13 @@ using NUnit.Framework;
 public class HeroRepositoryTests
 {
     private HeroRepository heroRepository;
+    private Hero hero;
 
     [SetUp]
     public void SetUp()
     {
         heroRepository = new HeroRepository();
+        hero = new Hero("name", 3);
     }
 
     [Test]
@@ -34,5 +36,12 @@ public class HeroRepositoryTests
     public void RemoveWorksCorrectly()
     {
         Assert.That(heroRepository.Remove("name"), Is.EqualTo(false));
+    }
+
+    [Test]
+    public void GetHeroWithHighestLevelWorks()
+    {
+        heroRepository.Create(hero);
+        Assert.That(heroRepository.GetHeroWithHighestLevel(), Is.EqualTo(hero));
     }
 }
