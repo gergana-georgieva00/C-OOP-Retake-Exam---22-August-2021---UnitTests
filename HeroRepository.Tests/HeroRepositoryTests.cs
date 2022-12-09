@@ -44,4 +44,11 @@ public class HeroRepositoryTests
         heroRepository.Create(hero);
         Assert.That(heroRepository.GetHeroWithHighestLevel(), Is.EqualTo(hero));
     }
+
+    [Test]
+    public void GetHeroWorks()
+    {
+        heroRepository.Create(hero);
+        Assert.That(heroRepository.GetHero("name"), Is.EqualTo(hero));
+    }
 }
