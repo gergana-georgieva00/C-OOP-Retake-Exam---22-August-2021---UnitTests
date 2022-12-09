@@ -29,4 +29,10 @@ public class HeroRepositoryTests
     {
         Assert.Throws<ArgumentNullException>(() => heroRepository.Remove(null));
     }
+
+    [Test]
+    public void RemoveWorksCorrectly()
+    {
+        Assert.That(heroRepository.Remove("name"), Is.EqualTo(false));
+    }
 }
