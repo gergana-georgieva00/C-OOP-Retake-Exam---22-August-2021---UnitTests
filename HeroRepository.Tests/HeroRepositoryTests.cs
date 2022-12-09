@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 public class HeroRepositoryTests
@@ -50,5 +51,13 @@ public class HeroRepositoryTests
     {
         heroRepository.Create(hero);
         Assert.That(heroRepository.GetHero("name"), Is.EqualTo(hero));
+    }
+
+    [Test]
+    public void HeroesGetterWorks()
+    {
+        var collection = new List<Hero>() { hero };
+        heroRepository.Create(hero);
+        Assert.That(heroRepository.Heroes, Is.EqualTo(collection));
     }
 }
