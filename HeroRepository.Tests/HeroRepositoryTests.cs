@@ -16,4 +16,11 @@ public class HeroRepositoryTests
     {
         Assert.Throws<ArgumentNullException>(() => heroRepository.Create(null));
     }
+
+    [Test]
+    public void CreateHeroWithExistentHeroThrows()
+    {
+        heroRepository.Create(new Hero("name", 3));
+        Assert.Throws<InvalidOperationException>(() => heroRepository.Create(new Hero("name", 3)));
+    }
 }
